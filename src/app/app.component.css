@@ -1,0 +1,19 @@
+#header {
+  height: 54px;
+  padding: 10px;
+  background: #020070;
+  color: #001390 0;
+}
+
+#header .logo {
+  height: 30px;
+  float: left;outline: none;
+}
+
+#header .btn-checkout {
+  float: right;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;
+}

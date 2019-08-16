@@ -1,0 +1,7 @@
+.loading-spinner .spinner, .loading-spinner .text {
+  margin: 0 auto;
+}
+
+.loading-spinner .text {
+  text-align: center;
+}

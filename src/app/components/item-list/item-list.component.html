@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Products List</h1>
+  <ng-container *ngIf="isLoading">
+    <app-loader>
+      Loading products list ... Please wait.
+    </app-loader>
+  </ng-container>
+  <ng-container *ngIf="isError">
+    <!-- <app-network-error-component></app-network-error-component> -->
+  </ng-container>
+  <div *ngIf="!isLoading" class="container-fluid">
+    <button class="button" (click)="highToLow()">Sort High to Low</button>&nbsp;
+    <button class="button" (click)="lowToHigh()">Sort Low to High</button>
+    <div class="row">
+      <div *ngFor="let item of outerArr" class="col-md-4">
+        <app-items-list-item [item]="item" (onItemClick)="handleItemClick($event)"
+          (onHandleWishlist)='handleWishlist($event)' (onAddToCartClick)="handleAddToCardClick($event)">
+        </app-items-list-item>
+      </div>
+    </div>
+  </div>
+</div>

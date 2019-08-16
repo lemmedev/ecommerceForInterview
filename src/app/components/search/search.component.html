@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="container-fluid">
+        <div *ngFor="let item of searchedItems" class="items-list-item">
+
+
+            <div class="row" *ngIf="item">
+                <mat-card>
+                    <mat-card-content>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 *ngIf="item.name">
+                                    <strong>{{item.name}}</strong>
+                                </h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p *ngIf="item.content">
+                                            {{item.content}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p *ngIf="item.price">
+                                            <strong>Price: </strong>{{item.price}}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p *ngIf="item.review">
+                                            <strong>Reviews: </strong>{{item.review}}
+
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img class="items-list-item__img" style="width: inherit"
+                                            [src]="item.imageUrl" />
+                                    </div>
+                                </div>
+
+                                <!-- <div style="display: flex; flex-direction: column">
+                    <button mat-button>
+                      <mat-icon>favorite</mat-icon>Wishlist
+                    </button>
+                    <br>
+  
+                    <button mat-button>
+                      <mat-icon>shopping_cart</mat-icon>Add to cart
+                    </button>
+                  </div> -->
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <hr>
+
+
+
+
+
+        </div>
+        <br>
+        <div *ngIf="searchedItems.length < 1">
+            <a mat-raised-button color="primary" [routerLink]="['/']" routerLinkActive="router-link-active"
+                class="btn btn-primary btn-checkout col-md-12">
+                No Result Found Go to Home
+            </a>
+        </div><br>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="items-list-item" *ngIf="item">
+  <mat-card (click)="handleCardClick($event)">
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4 *ngIf="item.name">
+            <strong>{{item.name}}</strong>
+          </h4>
+          <div class="row">
+            <div class="col-md-12">
+              <p *ngIf="item.content">
+                {{item.content}}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p *ngIf="item.price">
+                <strong>Price: </strong>{{item.price}}
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <p *ngIf="item.review">
+                <strong>Reviews: </strong>{{item.review}}
+
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <img *ngIf="!item.noImage" (error)="item.noImage=true;" (load)="item.imageLoad=true"
+                class="items-list-item__img" style="width: inherit" [src]="item.imageUrl" />
+              <p *ngIf="item.noImage">No Image</p>
+              <mat-spinner *ngIf="!item.imageLoad && !item.noImage" [diameter]="30"></mat-spinner>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column">
+            <button mat-button (click)='handleWishlist()'>
+              <mat-icon>favorite</mat-icon>Wishlist
+            </button>
+            <br>
+            <!-- <button mat-raised-button color="primary">More Info</button> -->
+            <button mat-button (click)='handleAddToCardClick()'>
+              <mat-icon>shopping_cart</mat-icon>Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
